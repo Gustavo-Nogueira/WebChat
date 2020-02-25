@@ -65,10 +65,9 @@ module.exports.newParticipantChat = function(socket,UserModel){
 			.catch(function(err){ console.log("Falha ao salvar no bd: ",err); });
 
 	// Emit broadcast para criar caixa de diálogo que informa que entrou um novo participante.
-	socket.broadcast.emit('send_msg_client',{nickname: nick,
-												  msg: " entrou no chat!"})
+	socket.broadcast.emit('send_msg_client',{nickname: nick, msg: " entrou no chat!"})
 
-	// Update dos participante online no chat pela aba "Participantes"
+	// Update dos participantes online no chat pela aba "Participantes"
 	UserModel.find({},function(err,users){
 		// retorna somente para usuário que entrou.
 		socket.emit('update_online_participants',
