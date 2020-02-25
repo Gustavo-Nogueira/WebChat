@@ -1,2 +1,2 @@
 # WebChat
-Simple webchat using node.js,mongoDB and socket.io.
+Simple webchat using node.js, mongoDB and socket.io.
