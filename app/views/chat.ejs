@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Multiroom Chat</title>
+
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		
+		<!-- JQUERY -->
+		<script src="js/jquery-2.2.1.js"></script>
+		
+		<!-- bootstrap - link cdn -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	
+		<!-- estilo -->
+		<link href="css/style.css" rel="stylesheet">
+		
+		<script type="text/javascript">
+		
+			$(document).ready(function(){
+				$("#show_chat").click(function(){
+					$("#conversation").show();
+					$("#participants").hide();
+					hideNavbar();
+				});
+				
+				$("#show_participants").click(function(){
+					$("#participants").show();
+					$("#conversation").hide();
+					hideNavbar();
+				});
+			});
+			
+			function hideNavbar(){
+				$("#btn_navbar_toggle").attr("class","navbar-toggle collapsed");
+				$("#navbar-collapse-1").attr("class","navbar-collapse collapse");
+				$("#btn_navbar_toggle").attr("aria-expanded","false");
+				$("#navbar-collapse-1").attr("aria-expanded","false");
+			}
+		</script>
+	</head>
+
+	<body>
+	
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1" id="btn_navbar_toggle">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Multiroom Chat</a>
+				</div>
+				
+				<div class="collapse navbar-collapse" id="navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="#" id="show_chat">Chat</a>
+						</li>
+						<li>
+							<a href="#" id="show_participants">Participantes</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	
+		<div class="container">
+            <div class="row conversation" id="conversation">
+				<div class="col-md-1"></div>
+				<div class="col-md-10" id="dialogues">
+					
+				</div>
+				<div class="col-md-1"></div>
+                
+            </div>
+			
+			<div class="row participants" id="participants" style="display:none">
+				<div class="col-md-1"></div>
+				<div class="col-md-10" id="participants"> 
+		
+				</div>
+				<div class="col-md-1"></div>
+                
+            </div>
+        </div>
+		
+		<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+			<div class="container" id="input_msg">
+				<div class="panel-body">
+					<div class="col-md-12">
+						<div class="input-group">
+							<input type="text" class="form-control" id="field_msg" 
+							placeholder="Mensagem">
+							<input type="hidden" value="<%= data.nickname %>" id="nick_field">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button" id="send_msg">
+									>
+								</button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>		
+		
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<!-- Recurso do socket.io para escutar/enviar requisições ao servidor -->
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			// Realizar uma conexão por websocket com servidor e retorna uma instância do socket.io onde é possível realizar comunicação com servidor.
+			let socket = io("http://localhost:80",{query: `nickname=${$("#nick_field").val()}`});
+
+			// Envio de mensegens e dados de usuário
+			$("#send_msg").click(function(){
+				socket.emit('send_msg_server',
+							{nickname: $("#nick_field").val(),msg: $("#field_msg").val() });
+			});
+
+			// Escutar mensagens recebidas
+			socket.on('send_msg_client',function(data){
+				//alert("Recebi uma requisição do servidor!");
+				let html_msg = `<div class="dialogues">
+										<h4>${data.nickname}</h4>
+										<p>${data.msg}</p>
+									</div>`;
+				$("#dialogues").append(html_msg);
+				window.scrollTo(0, document.body.scrollHeight);	
+			});
+
+			// Escutar participantes que estão entrando no chat e sinalizar na aba "Participantes".
+			socket.on('update_online_participants',function(data){
+				if(data.logged){
+					data.updateUsers.forEach(function(user){
+						let html = `<span id="${user.userSocketId}" class="participants">
+										<img src="images/icon_chat02.png"/>
+										<strong>${user.nickname}</strong>
+									</span> <br>`;
+						$("#participants").append(html);
+					});
+				}
+				else{
+					$(`#${data.userSocketId}`).remove();
+				}
+			});
+
+		</script>
+	</body>
+</html>

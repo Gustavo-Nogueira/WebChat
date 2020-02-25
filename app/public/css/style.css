@@ -1,0 +1,89 @@
+body{
+    background-color: #444;
+    background-image: url('../images/background02.jpg');
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.form-signin input[type="text"] {
+    margin-bottom: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-signin .form-control {
+    position: relative;
+    font-size: 16px;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.vertical-offset-80 {
+    padding-top: 80px;
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+}
+.panel {
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+img {
+    vertical-align: middle;
+}
+
+.conversation{
+	margin-top:70px;
+	margin-bottom: 70px;
+}
+
+.participants{
+	margin-top:70px;
+	margin-bottom: 70px;
+}
+
+.participants img{
+	margin-top:-10px;
+}
+
+.dialogues{
+	width:100%;
+	height:auto;
+	margin-bottom:15px;
+	padding:10px;
+	background:#D8F0FE;
+}
+
+.dialogues h4{
+	font-size:15px;
+	font-weight: bold;
+	color:#8B7777;
+}
+
+.dialogues p{
+	font-size:12px;
+	padding-left:15px;
+	color:#8B7777;
+}
