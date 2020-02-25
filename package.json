@@ -1,0 +1,25 @@
+{
+  "name": "projeto-websocket",
+  "version": "1.0.0",
+  "description": "Chat real-time",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Chat",
+    "real-time"
+  ],
+  "author": "Gustavo Nogueira",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "consign": "^0.1.6",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-validator": "^6.4.0",
+    "mongodb": "^3.5.3",
+    "mongoose": "^5.9.1",
+    "socket.io": "^2.3.0"
+  }
+}
