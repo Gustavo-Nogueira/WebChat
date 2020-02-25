@@ -16,9 +16,10 @@ application.set('io',io);
 
 // Removendo docs que já estão pré-inseridos no bd
 UserModel.deleteMany({},function(err){
-	if(err) { console.log("Erro query bd: ",err); return; }
+	if(err) { console.log("Erro durante query no bd: ",err); return; }
 });
 
+// O evento 'connection' é acionado quando algum cliente tenta estabelecer uma conexão,por websocket, com o servidor.
 io.on('connection',function(socket){
 	controllersChat.newParticipantChat(socket,UserModel);
 	
