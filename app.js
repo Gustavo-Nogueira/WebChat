@@ -8,7 +8,7 @@ let server = application.listen(80,function(){
 	console.log("Servidor ON");
 });
 
-// Config para executar o socket na mesma instância servidora da aplicação.
+// Config para executar o socket.io na mesma instância servidora da aplicação, assim agindo na mesma uri e porta da aplicação
 let io = require("socket.io").listen(server);
 
 // Definindo,com express, a instância do Socket.io como variável global da aplicação
@@ -19,7 +19,7 @@ UserModel.deleteMany({},function(err){
 	if(err) { console.log("Erro durante query no bd: ",err); return; }
 });
 
-// O evento 'connection' é acionado quando algum cliente tenta estabelecer uma conexão,por websocket, com o servidor.
+// O evento 'connection' é acionado após uma conexão bem-sucedida do navegador da web com o servidor
 io.on('connection',function(socket){
 	controllersChat.newParticipantChat(socket,UserModel);
 	
