@@ -111,7 +111,7 @@
 		<!-- Recurso do socket.io para escutar/enviar requisições ao servidor -->
 		<script src="/socket.io/socket.io.js"></script>
 		<script>
-			// Realizar uma conexão por websocket com servidor e retorna uma instância do socket.io onde é possível realizar comunicação com servidor.
+			// Realiza uma conexão de socket entre o navegador e o servidor e retorna uma instância do socket.io onde é possível realizar comunicação com servidor.
 			let socket = io("http://localhost:80",{query: `nickname=${$("#nick_field").val()}`});
 
 			// Envio de mensegens e dados de usuário
@@ -124,9 +124,9 @@
 			socket.on('send_msg_client',function(data){
 				//alert("Recebi uma requisição do servidor!");
 				let html_msg = `<div class="dialogues">
-										<h4>${data.nickname}</h4>
-										<p>${data.msg}</p>
-									</div>`;
+							<h4>${data.nickname}</h4>
+							<p>${data.msg}</p>
+						</div>`;
 				$("#dialogues").append(html_msg);
 				window.scrollTo(0, document.body.scrollHeight);	
 			});
@@ -136,9 +136,9 @@
 				if(data.logged){
 					data.updateUsers.forEach(function(user){
 						let html = `<span id="${user.userSocketId}" class="participants">
-										<img src="images/icon_chat02.png"/>
-										<strong>${user.nickname}</strong>
-									</span> <br>`;
+								<img src="images/icon_chat02.png"/>
+								<strong>${user.nickname}</strong>
+							    </span> <br>`;
 						$("#participants").append(html);
 					});
 				}
