@@ -20,11 +20,11 @@ Já os sockets do tipo UDP desconsidera ordem de pacotes, recuperação de falha
 	 
 É um protocolo de comunicação, aplicado geralmente a aplicações web, que fornece/gerencia comunicação assíncrona e bidirecional entre o client-server através de uma conexão TCP. 
 
-O websocket é executado pelo navegador, usa o protocolo HTTP e ambos interlocutores trocam mensagens simultaneamente, o que é chamado de full-duplex. Além disso, o WebSocket permanece aberto o tempo todo, permitindo a transferência de dados em tempo real.
+O websocket é executado pelo navegador e servidor web, usa o protocolo HTTP e ambos interlocutores trocam mensagens simultaneamente, o que é chamado de *full-duplex*. Além disso, o WebSocket permanece aberto o tempo todo, permitindo a transferência de dados em tempo real.
 
 ## Socket.IO 
 	
-É uma biblioteca que permite a comunicação em tempo real e full-duplex entre o Cliente e os servidores da Web. Ele utiliza principalmente o protocolo WebSocket(ou outros, então vide [3]) para fornecer uma interface. 
+É uma biblioteca que permite a comunicação em tempo real e *full-duplex* entre o Cliente e os servidores da Web. Ele utiliza principalmente o protocolo WebSocket(ou outros, então vide [3]) para fornecer uma interface. 
 
 Pelo fato do Socket.IO possuir diversos recursos, como transmissão para vários soquetes(aplicando o conceito de broadcast), então ele acaba sendo mais do que uma camada sobre WebSockets.
 
@@ -54,7 +54,7 @@ Pelo fato do Socket.IO possuir diversos recursos, como transmissão para vários
 
 * [chat.js - Controller](https://github.com/Gustavo-Nogueira/WebChat/blob/master/app/controllers/chat.js):
 
-* [chat.js - View](https://github.com/Gustavo-Nogueira/WebChat/blob/master/app/views/chat.ejs):
+* [chat.ejs - View](https://github.com/Gustavo-Nogueira/WebChat/blob/master/app/views/chat.ejs):
 
 ## Referências:
 **Principais:**
