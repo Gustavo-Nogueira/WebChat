@@ -32,7 +32,7 @@ module.exports.onDisconnect = function(socket,UserModel){
 			else console.log("Sucesso ao remover do bd.");
 		});
 		
-		// Update dos participante online no chat pela aba "Participantes"
+		// Update dos participantes online no chat pela aba "Participantes"
 		// retorna somente para usuário que saiu.
 		socket.emit('update_online_participants',{userSocketId: socket.id,logged: false});
 		// broadcast para os outros usuários conectados no socket.
