@@ -1,9 +1,9 @@
-﻿
+
 ## Socket
 	
 Um socket é um *endpoint* de um link de comunicação bidirecional entre dois processos diferentes que podem ou não estar na mesma máquina, assim permitindo a comunicação entre esses processos.
 
-Os sockets são um conceito mais genérico, ou seja, não ficam restritos somente ao protocolo HTTP(voltado para aplicações web), assim sendo, os sockets também podem ser utilizados em outros protocolos da camada de aplicação, tais como os protocolos FTP, SMTP e POP3. 
+Os sockets são um conceito mais genérico, ou seja, não ficam restritos somente ao protocolo HTTP(voltado para aplicações web), assim sendo, os sockets também podem ser utilizados em aplicações que utilizam outros tipos protocolos na camada de aplicação, tais como os protocolos FTP, SMTP e POP3. 
 
 * Um exemplo de utilização é quando fazemos um ssh em um servidor estamos abrindo e utilizando um socket.  
 
@@ -47,6 +47,14 @@ Pelo fato do Socket.IO possuir diversos recursos, como transmissão para vários
 
 * Connect: 
 * Disconnect: 
+
+## Arquivos importantes quanto a utilização do Socket.IO nesse projeto
+
+* [app.js](https://github.com/Gustavo-Nogueira/WebChat/blob/master/app.js): 
+
+* [chat.js - Controller](https://github.com/Gustavo-Nogueira/WebChat/blob/master/app/controllers/chat.js):
+
+* [chat.js - View](https://github.com/Gustavo-Nogueira/WebChat/blob/master/app/views/chat.ejs):
 
 ## Referências:
 **Principais:**
