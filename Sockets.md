@@ -1,3 +1,4 @@
+<h1 align="center">Socket, WebSocket e Socket.IO </h1>
 
 ## Socket
 	
@@ -29,9 +30,9 @@ O websocket é executado pelo navegador e servidor web, usa o protocolo HTTP e a
 
 ## Socket.IO 
 	
-É uma biblioteca que permite a comunicação em tempo real e *full-duplex* entre o Cliente e os servidores da Web. Ele utiliza principalmente o protocolo WebSocket(ou outros, então vide [4]) para fornecer uma interface. 
+É uma biblioteca que permite a comunicação em tempo real e *full-duplex* entre o Cliente e os servidores da Web. Ele utiliza principalmente o protocolo WebSocket(ou outros, então vide [4] e [5]) para fornecer uma interface que vai proporcionar um desevolvimento de scripts de uma maneira mais simples para que tal comunicação ocorra.
 
-Pelo fato do Socket.IO possuir diversos recursos, como transmissão para vários soquetes(aplicando o conceito de *broadcast*), então ele acaba sendo mais do que uma camada sobre WebSockets.
+Pelo fato do Socket.IO possuir diversos recursos, como transmissão para vários soquetes(aplicando o conceito de *broadcast*) e outros(vide [4] e [5]), então ele acaba sendo mais do que uma simples camada sobre WebSockets.
 
 **Obs.:**
 * Requer que ambas as bibliotecas sejam usadas no lado do cliente e também uma biblioteca do lado do servidor.
@@ -94,6 +95,7 @@ io.on ( 'connection' , function( socket_client ) {
 * [2] https://en.wikipedia.org/wiki/Socket.IO
 * [3] https://blog.pantuza.com/artigos/o-que-sao-e-como-funcionam-os-sockets
 * [4] https://davidwalsh.name/websocket
+* [5] https://socket.io/docs/
 
 **Outras:**
 * https://stackoverflow.com/questions/4973622/difference-between-socket-and-websocket
